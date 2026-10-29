@@ -1,0 +1,207 @@
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 252px;
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 27px 17px 16px;
+  background: #172331;
+  color: #d5dfeb;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 8px 36px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: #294052;
+  color: #a6d9d0;
+  font-size: 28px;
+}
+
+.brand h1 {
+  margin: 0;
+  color: #f5f8fb;
+  font: 800 20px Manrope, sans-serif;
+}
+
+.brand span, .mountain-card span {
+  display: block;
+  margin-top: 4px;
+  color: #93a6b9;
+  font-size: 9px;
+}
+
+.nav-label {
+  padding: 0 12px 13px;
+  color: #8998aa;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.navigation {
+  display: grid;
+  gap: 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #aebccc;
+  text-align: left;
+  font-size: 12px;
+}
+
+.nav-item:hover, .nav-item.active {
+  background: #2c414f;
+  color: #fff;
+}
+
+.nav-item.active {
+  box-shadow: inset 3px 0 #7bb9aa;
+}
+
+.menu-icon {
+  width: 20px;
+  text-align: center;
+  font-size: 19px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.mountain-card {
+  padding: 13px;
+  border: 1px solid #344451;
+  border-radius: 9px;
+  font-size: 11px;
+}
+
+.sidebar-footer {
+  padding: 20px 5px 0;
+  color: #8496a8;
+  font-size: 10px;
+}
+
+.main-content {
+  min-height: 100vh;
+  margin-left: 252px;
+}
+
+.topbar {
+  height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border-bottom: 1px solid #e8edf2;
+  background: #fff;
+}
+
+.breadcrumb, .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.breadcrumb {
+  color: #8995a3;
+}
+
+.breadcrumb strong {
+  color: #344256;
+}
+
+.environment-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px;
+  border-radius: 6px;
+  background: #f0f7f3;
+  color: #39795f;
+  font-size: 9px;
+}
+
+.footer-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #53bd91;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #dfeae6;
+  color: #35695a;
+}
+
+.page-content {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    width: 66px;
+    padding: 20px 8px;
+  }
+
+  .brand {
+    padding: 0 0 30px;
+  }
+
+  .brand > div:nth-child(2),
+  .nav-label,
+  .nav-item > span:not(.menu-icon),
+  .mountain-card,
+  .sidebar-footer {
+    display: none;
+  }
+
+  .nav-item {
+    justify-content: center;
+    padding: 13px 0;
+  }
+
+  .main-content {
+    margin-left: 66px;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    padding: 0 12px;
+  }
+
+  .page-content {
+    padding: 20px 12px;
+  }
+}
