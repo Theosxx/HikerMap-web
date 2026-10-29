@@ -45,16 +45,6 @@ export default function App() {
       activeMenu={activeMenu}
       onNavigate={setActiveMenu}
     >
-      <div className="page-actions">
-        <button
-          type="button"
-          className="btn btn-outline-primary"
-          onClick={refresh}
-        >
-          Refresh Data
-        </button>
-      </div>
-
       {renderPage()}
     </DashboardLayout>
   );

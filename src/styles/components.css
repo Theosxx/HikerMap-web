@@ -188,3 +188,270 @@
   color: #718096;
   font-size: 14px;
 }
+
+.latest-position-card {
+  padding: 24px;
+}
+
+.latest-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.latest-header h3 {
+  margin: 0 0 7px;
+  font-size: 20px;
+  color: #1e293b;
+}
+
+.latest-header p {
+  margin: 0;
+  color: #718096;
+  font-size: 13px;
+}
+
+.gps-badge {
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gps-fix {
+  background: #e6f5ed;
+  color: #218354;
+}
+
+.gps-nofix {
+  background: #fff0ed;
+  color: #d34c3e;
+}
+
+.latest-received {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border: 1px solid #e8edf2;
+  border-radius: 9px;
+  margin-bottom: 20px;
+}
+
+.latest-received span {
+  color: #718096;
+  font-size: 13px;
+}
+
+.latest-received strong {
+  color: #334155;
+  font-size: 13px;
+}
+
+.latest-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.info-section {
+  padding: 18px;
+  border: 1px solid #e5eaf0;
+  border-radius: 10px;
+}
+
+.info-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.info-section-title h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #334155;
+}
+
+.info-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf3f8;
+  color: #315d7c;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-item span {
+  color: #718096;
+  font-size: 13px;
+}
+
+.info-item strong {
+  color: #1e293b;
+  font-size: 13px;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .latest-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .latest-received {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.history-card {
+  padding: 24px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.history-header h3 {
+  margin: 0 0 7px;
+  color: #1e293b;
+  font-size: 20px;
+}
+
+.history-header p {
+  margin: 0;
+  color: #718096;
+  font-size: 13px;
+}
+
+.history-total {
+  background: #edf5f3;
+  color: #39816f;
+  padding: 9px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item {
+  padding: 17px 19px;
+  border: 1px solid #e8edf2;
+  border-radius: 10px;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.history-item:hover {
+  border-color: #b9d5ce;
+  box-shadow: 0 3px 12px rgba(30, 41, 59, 0.05);
+}
+
+.history-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 17px;
+}
+
+.history-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #243b53;
+  font-size: 14px;
+}
+
+.history-location-icon {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  background: #edf3f8;
+  color: #315d7c;
+  border-radius: 8px;
+  font-size: 19px;
+}
+
+.history-coordinates {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.history-coordinates div,
+.history-time {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.history-coordinates span,
+.history-time span {
+  color: #8a98a9;
+  font-size: 11px;
+}
+
+.history-coordinates strong,
+.history-time strong {
+  color: #334155;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.history-time {
+  padding-top: 13px;
+  border-top: 1px solid #edf0f4;
+}
+
+.history-empty {
+  padding: 45px 15px;
+  text-align: center;
+  color: #718096;
+}
+
+@media (max-width: 650px) {
+  .history-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .history-coordinates {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

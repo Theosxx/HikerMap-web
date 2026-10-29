@@ -44,34 +44,97 @@ export default function Dashboard({ positions, loading, error }) {
         ))}
       </div>
         <HikerMap positions={positions} />
-      <div className="content-card">
-        <h3>Posisi Terbaru</h3>
+      
+      <div className="content-card latest-position-card">
+        <div className="latest-header">
+          <div>
+            <h3>Informasi Posisi Terbaru</h3>
+            <p>Data terakhir yang diterima dari perangkat gateway.</p>
+          </div>
 
-        {loading && <p>Memuat data...</p>}
+          {latest && (
+            <span className={`gps-badge ${latest.status === "FIX" ? "gps-fix" : "gps-nofix"}`}>
+              {latest.status}
+            </span>
+          )}
+        </div>
 
-        {!loading && !positions.length && (
+        {loading && <p>Memuat informasi posisi...</p>}
+
+        {!loading && !latest && (
           <p>Belum ada data posisi di database.</p>
         )}
 
         {latest && (
-          <div className="position-summary">
-            <p>Status GPS: <strong>{latest.status}</strong></p>
-            <p>Latitude: {latest.latitude}</p>
-            <p>Longitude: {latest.longitude}</p>
-            <p>Ketinggian: {latest.altitude} m</p>
-            <p>Satelit: {latest.satellites}</p>
-            <p>HDOP: {latest.hdop}</p>
-            <p>RSSI: {latest.rssi} dBm</p>
-            <p>SNR: {latest.snr} dB</p>
-            <p>
-              Diterima:{" "}
-              {latest.receivedAt
-                ? new Date(latest.receivedAt).toLocaleString("id-ID")
-                : "-"}
-            </p>
-          </div>
+          <>
+            <div className="latest-received">
+              <span>Terakhir diperbarui</span>
+              <strong>
+                {latest.receivedAt
+                  ? new Date(latest.receivedAt).toLocaleString("id-ID")
+                  : "-"}
+              </strong>
+            </div>
+
+            <div className="latest-info-grid">
+              <div className="info-section">
+                <div className="info-section-title">
+                  <span className="info-icon">⌖</span>
+                  <h4>Informasi GPS</h4>
+                </div>
+
+                <div className="info-item">
+                  <span>Latitude</span>
+                  <strong>{latest.latitude}</strong>
+                </div>
+
+                <div className="info-item">
+                  <span>Longitude</span>
+                  <strong>{latest.longitude}</strong>
+                </div>
+
+                <div className="info-item">
+                  <span>Ketinggian</span>
+                  <strong>{latest.altitude} m</strong>
+                </div>
+
+                <div className="info-item">
+                  <span>Jumlah Satelit</span>
+                  <strong>{latest.satellites}</strong>
+                </div>
+
+                <div className="info-item">
+                  <span>HDOP</span>
+                  <strong>{latest.hdop}</strong>
+                </div>
+              </div>
+
+              <div className="info-section">
+                <div className="info-section-title">
+                  <span className="info-icon">⌁</span>
+                  <h4>Kualitas Komunikasi LoRa</h4>
+                </div>
+
+                <div className="info-item">
+                  <span>RSSI</span>
+                  <strong>{latest.rssi} dBm</strong>
+                </div>
+
+                <div className="info-item">
+                  <span>SNR</span>
+                  <strong>{latest.snr} dB</strong>
+                </div>
+
+                <div className="info-item">
+                  <span>Counter Paket</span>
+                  <strong>#{latest.counter}</strong>
+                </div>
+              </div>
+            </div>
+          </>
         )}
       </div>
+
     </div>
   );
 }

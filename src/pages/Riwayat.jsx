@@ -7,39 +7,69 @@ export default function Riwayat({ positions, loading, error }) {
   );
 
   return (
-    <div className="content-card">
-      <h2>Riwayat Posisi</h2>
-      <p>Riwayat paket posisi yang tersimpan di database.</p>
+      
+  <div className="content-card history-card">
+    <div className="history-header">
+      <div>
+        <h3>Riwayat Perjalanan</h3>
+        <p>Rekaman posisi GPS yang diterima dan tersimpan di database.</p>
+      </div>
+      <span className="history-total">
+        {positions.length} Rekaman
+      </span>
+    </div>
 
-      {error && <div className="alert alert-danger">{error}</div>}
-      {loading && <p>Memuat data...</p>}
-
+    {positions.length === 0 ? (
+      <div className="history-empty">
+        Belum ada riwayat posisi.
+      </div>
+    ) : (
       <div className="history-list">
-        {history.map((p) => (
-          <div
-            className="history-item"
-            key={`${p.deviceId}-${p.counter}`}
-          >
-            <div>
-              <strong>Paket #{p.counter}</strong>
-              <p>
-                {p.latitude}, {p.longitude}
-              </p>
-              <small>
-                {p.receivedAt
-                  ? new Date(p.receivedAt).toLocaleString("id-ID")
-                  : "-"}
-              </small>
+        {positions.map((item) => (
+          <div className="history-item" key={item.id ?? item.counter}>
+            <div className="history-item-top">
+              <div className="history-counter">
+                <span className="history-location-icon">⌖</span>
+                <strong>Paket #{item.counter}</strong>
+              </div>
+
+              <span
+                className={`gps-badge ${
+                  item.status === "FIX" ? "gps-fix" : "gps-nofix"
+                }`}
+              >
+                {item.status}
+              </span>
             </div>
 
-            <span className="status-label">{p.status}</span>
+            <div className="history-coordinates">
+              <div>
+                <span>Latitude</span>
+                <strong>{item.latitude}</strong>
+              </div>
+              <div>
+                <span>Longitude</span>
+                <strong>{item.longitude}</strong>
+              </div>
+              <div>
+                <span>Ketinggian</span>
+                <strong>{item.altitude} m</strong>
+              </div>
+            </div>
+
+            <div className="history-time">
+              <span>Waktu diterima</span>
+              <strong>
+                {item.receivedAt
+                  ? new Date(item.receivedAt).toLocaleString("id-ID")
+                  : "-"}
+              </strong>
+            </div>
           </div>
         ))}
-
-        {!loading && history.length === 0 && (
-          <p>Belum ada riwayat posisi.</p>
-        )}
       </div>
-    </div>
+    )}
+  </div>
+
   );
 }
